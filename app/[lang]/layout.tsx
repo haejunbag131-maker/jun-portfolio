@@ -5,6 +5,8 @@ import { isValidLocale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 import { getContents, getDictionary } from "@/lib/loaders";
 import { LanguageProvider } from "@/providers/language-provider";
+import SmoothScroll from "@/providers/smooth-scroll-provider";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const syne = Syne({ subsets: ["latin"], variable: "--font-syne" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -46,7 +48,13 @@ export default async function LangLayout({
           dictionary={dictionary}
           contents={contents}
         >
-          {children}
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem={false}
+          >
+            <SmoothScroll>{children}</SmoothScroll>
+          </ThemeProvider>
         </LanguageProvider>
       </body>
     </html>
