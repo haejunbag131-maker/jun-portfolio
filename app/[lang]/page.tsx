@@ -1,5 +1,6 @@
 import ScrollProgress from "@/components/layout/scroll-progress";
 import Hero from "@/components/sections/hero";
+import About from "@/components/sections/about";
 
 const sections = [
   { id: "about", label: "About" },
@@ -16,6 +17,7 @@ export default function Home() {
 
       <main className="relative bg-background text-foreground">
         <Hero />
+        <About />
 
         {sections.map((section, index) => (
           <section

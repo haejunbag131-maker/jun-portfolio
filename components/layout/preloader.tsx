@@ -98,10 +98,10 @@ export function Preloader() {
               <div className="absolute inset-3 rounded-full border border-border/50 bg-secondary/5 backdrop-blur-md" />
 
               <Image
-                src="/favicon.ico"
+                src="/logo-current.png"
                 alt="Logo"
-                width={56}
-                height={56}
+                width={64}
+                height={64}
                 className="z-10 object-contain"
                 priority
               />

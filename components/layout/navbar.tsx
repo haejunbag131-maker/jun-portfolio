@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   AnimatePresence,
@@ -94,35 +95,48 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionElements = navLinks
-      .map((link) => document.getElementById(link.href.replace("#", "")))
-      .filter((element): element is HTMLElement => Boolean(element));
+    const updateActiveSection = () => {
+      if (window.scrollY < window.innerHeight * 0.45) {
+        setActiveHref("#home");
+        return;
+      }
 
-    if (sectionElements.length === 0) {
-      return;
-    }
+      const sectionElements = navLinks
+        .filter((link) => link.href !== "#home")
+        .map((link) => document.getElementById(link.href.replace("#", "")))
+        .filter((element): element is HTMLElement => Boolean(element));
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntry = entries.find((entry) => entry.isIntersecting);
+      const checkpoint = window.innerHeight * 0.45;
 
-        if (visibleEntry) {
-          setActiveHref(`#${visibleEntry.target.id}`);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-35% 0px -55% 0px",
-        threshold: 0,
-      },
-    );
+      const currentSection = sectionElements.reduce<HTMLElement | null>(
+        (activeSection, section) => {
+          const rect = section.getBoundingClientRect();
 
-    sectionElements.forEach((section) => observer.observe(section));
+          if (rect.top <= checkpoint) {
+            return section;
+          }
+
+          return activeSection;
+        },
+        null,
+      );
+
+      if (currentSection) {
+        setActiveHref(`#${currentSection.id}`);
+      }
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+    lenis?.on("scroll", updateActiveSection);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+      lenis?.off("scroll", updateActiveSection);
     };
-  }, [navLinks]);
+  }, [lenis, navLinks]);
 
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -183,7 +197,7 @@ export default function Navbar() {
         paddingTop: paddingY,
         paddingBottom: paddingY,
       }}
-      className="fixed left-0 right-0 top-0 z-[100] transition-colors duration-300"
+      className="fixed left-0 right-0 top-0 z-100 transition-colors duration-300"
     >
       <div
         ref={dummyRef}
@@ -196,7 +210,7 @@ export default function Navbar() {
           backdropFilter,
           WebkitBackdropFilter: backdropFilter,
         }}
-        className="pointer-events-none absolute inset-0 -z-10 border-b border-border/40 bg-background/75"
+        className="pointer-events-none absolute inset-0 -z-10 border-b border-black/10 bg-[#f3f3f3]/85 dark:border-white/10 dark:bg-[#111111]/85"
       />
 
       <motion.nav
@@ -208,10 +222,26 @@ export default function Navbar() {
         <Link
           href="#home"
           onClick={(event) => scrollToSection(event, "#home")}
-          className="group relative z-[110] flex items-center gap-2"
+          className="group relative z-110 flex items-center gap-3"
         >
-          <span className="text-xl font-black uppercase tracking-tighter text-foreground transition-all duration-300 group-hover:opacity-70 sm:text-2xl">
-            parkhaejun
+          <span className="flex size-9 items-center justify-center rounded-full border border-black/10 bg-white p-1.5 shadow-sm backdrop-blur-sm transition-all duration-300 group-hover:scale-105 group-hover:border-black/20 group-hover:bg-white dark:border-white/10 dark:bg-black/20 dark:group-hover:border-white/25 dark:group-hover:bg-white/5">
+            <Image
+              src="/logo-current.png"
+              alt="Park Haejun Logo"
+              width={28}
+              height={28}
+              className="size-7 object-contain"
+              priority
+            />
+          </span>
+
+          <span className="flex flex-col items-center leading-none transition-all duration-300 group-hover:opacity-70">
+            <span className="text-xl font-black uppercase tracking-tighter text-foreground sm:text-2xl">
+              parkhaejun
+            </span>
+            <span className="mt-1 text-[9px] font-semibold uppercase tracking-[0.32em] text-muted-foreground">
+              Portfolio
+            </span>
           </span>
         </Link>
 
@@ -252,7 +282,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen((current) => !current)}
-          className="relative z-[110] inline-flex size-10 items-center justify-center text-foreground focus:outline-none xl:hidden"
+          className="relative z-110 inline-flex size-10 items-center justify-center text-foreground focus:outline-none xl:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
         >
@@ -267,7 +297,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[90] flex h-[100dvh] w-screen flex-col bg-background xl:hidden"
+            className="fixed inset-0 z-90 flex h-100dvh w-screen flex-col bg-background xl:hidden"
           >
             <div className="relative z-10 flex flex-1 flex-col overflow-y-auto px-container pb-24 pt-24 sm:pb-12 sm:pt-32">
               <ul className="flex flex-col gap-6 sm:gap-8">

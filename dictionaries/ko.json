@@ -1,9 +1,9 @@
 {
   "nav": {
-    "home": "Home",
+    "home": "Intro",
     "about": "About",
-    "stack": "Stack",
-    "projects": "Projects",
+    "stack": "Skill",
+    "projects": "Project",
     "roadmap": "Roadmap",
     "contact": "Contact"
   },
@@ -13,8 +13,8 @@
     "scroll": "Scroll Down"
   },
   "about": {
-    "title": "소개",
-    "cta": "자세히 보기"
+    "title": "About Me",
+    "cta": "Read Full Version"
   },
   "stackTitle": "기술 스택",
   "frontendStack": "프론트엔드",
