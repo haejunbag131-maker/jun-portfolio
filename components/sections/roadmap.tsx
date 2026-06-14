@@ -48,8 +48,8 @@ export default function Roadmap() {
       id="roadmap"
       className="relative overflow-hidden border-t border-border/50 py-32 xl:py-48"
     >
-      <div className="pointer-events-none absolute left-0 top-1/4 h-[500px] w-full max-w-lg -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-1/4 right-0 h-[500px] w-full max-w-lg translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
+      <div className="pointer-events-none absolute left-0 top-1/4 h-125 w-full max-w-lg -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-1/4 right-0 h-125 w-full max-w-lg translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
 
       <motion.div
         style={{ y: yBackground }}
@@ -82,7 +82,7 @@ export default function Roadmap() {
 
           <motion.div
             style={{ scaleY, originY: 0 }}
-            className="absolute bottom-0 left-6 top-0 z-10 w-[2px] -translate-x-1/2 bg-linear-to-b from-primary via-primary to-transparent md:left-1/2"
+            className="absolute bottom-0 left-6 top-0 z-10 w-0.5 -translate-x-1/2 bg-linear-to-b from-primary via-primary to-transparent md:left-1/2"
           />
 
           <div className="relative z-20 flex w-full flex-col gap-8 md:gap-24">
