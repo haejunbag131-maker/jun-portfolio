@@ -42,8 +42,6 @@
     "technologies": "Technologies",
     "live_demo": "Live Demo",
     "source_code": "Source Code",
-    "project_details": "Project Details",
-    "select_language": "Select Language",
-    "change_the_site_language": "Change the site language."
+    "project_details": "Project Details"
   }
 }
