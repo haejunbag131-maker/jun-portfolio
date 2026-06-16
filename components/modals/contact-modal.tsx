@@ -64,24 +64,24 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
           <div className="mt-6 flex flex-col flex-wrap gap-4 sm:mt-8 sm:flex-row">
             <a
               href={`mailto:${contact.email}`}
-              className="group flex items-center gap-4 rounded-full border border-border/50 bg-secondary/20 px-5 py-2.5 backdrop-blur-sm transition-all duration-500 ease-out hover:border-foreground/30 hover:bg-foreground"
+              className="group flex items-center gap-4 rounded-full border border-border/50 bg-secondary/20 px-5 py-2.5 backdrop-blur-sm transition-all duration-200 ease-out hover:border-foreground/30 hover:bg-foreground"
             >
-              <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background transition-transform duration-500 group-hover:scale-110 group-hover:bg-background">
+              <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background transition-transform duration-200 group-hover:scale-110 group-hover:bg-background">
                 <Mail className="size-3.5 text-foreground" />
               </div>
-              <span className="text-sm font-medium tracking-wide text-foreground transition-colors duration-500 group-hover:text-background">
+              <span className="text-sm font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-background">
                 {contact.email}
               </span>
             </a>
 
             <a
               href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-              className="group flex items-center gap-4 rounded-full border border-border/50 bg-secondary/20 px-5 py-2.5 backdrop-blur-sm transition-all duration-500 ease-out hover:border-foreground/30 hover:bg-foreground"
+              className="group flex items-center gap-4 rounded-full border border-border/50 bg-secondary/20 px-5 py-2.5 backdrop-blur-sm transition-all duration-200 ease-out hover:border-foreground/30 hover:bg-foreground"
             >
-              <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background transition-transform duration-500 group-hover:scale-110 group-hover:bg-background">
+              <div className="flex size-8 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background transition-transform duration-200 group-hover:scale-110 group-hover:bg-background">
                 <Phone className="size-3.5 text-foreground" />
               </div>
-              <span className="text-sm font-medium tracking-wide text-foreground transition-colors duration-500 group-hover:text-background">
+              <span className="text-sm font-medium tracking-wide text-foreground transition-colors duration-200 group-hover:text-background">
                 {contact.phone}
               </span>
             </a>
@@ -94,14 +94,14 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-border/50 bg-background px-5 text-foreground transition-all duration-500 hover:border-foreground/30 hover:bg-foreground hover:text-background"
+                className="group relative flex h-10 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-border/50 bg-background px-5 text-foreground transition-all duration-200 hover:border-foreground/30 hover:bg-foreground hover:text-background"
               >
                 <div className="absolute inset-0 flex h-full w-full -translate-x-full -skew-x-13 justify-center group-hover:translate-x-full group-hover:duration-1000">
                   <div className="relative h-full w-4 bg-background/20 dark:bg-background/20" />
                 </div>
                 <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest">
                   {link.label}
-                  <ArrowUpRight className="size-3 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowUpRight className="size-3 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>
               </a>
             ))}

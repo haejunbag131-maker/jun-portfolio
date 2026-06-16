@@ -17,6 +17,9 @@ type ProjectDictionary = {
   technologies?: string;
   live_demo?: string;
   source_code?: string;
+  report?: string;
+  paper?: string;
+  portfolio_pdf?: string;
 };
 
 type ProjectModalProps = {
@@ -43,7 +46,7 @@ export function ProjectModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={true}
-        className="flex max-h-[90vh] w-[95vw] flex-col gap-0 border-border/50 bg-background/95 p-0 backdrop-blur-xl sm:max-w-200"
+        className="flex max-h-[90vh] w-[95vw] flex-col gap-0 border-border/50 bg-background/95 p-0 shadow-2xl sm:max-w-[64rem]"
       >
         <DialogHeader className="sr-only">
           <DialogTitle>{project.title}</DialogTitle>
@@ -55,17 +58,16 @@ export function ProjectModal({
         <div className="absolute left-0 right-0 top-0 z-10 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
 
         <div
-          className="h-full flex-1 overflow-y-auto"
+          className="h-full flex-1 overscroll-contain overflow-y-auto"
           data-lenis-prevent="true"
         >
-          <div className="relative h-[40vh] w-full shrink-0 sm:h-[50vh]">
+          <div className="relative h-[36vh] w-full shrink-0 sm:h-[44vh]">
             <Image
               src={project.image}
               alt={project.title}
               fill
-              sizes="95vw"
+              sizes="(min-width: 640px) 64rem, 95vw"
               className="object-cover"
-              priority
             />
 
             <div className="absolute inset-0 bg-linear-to-t from-background to-transparent" />
@@ -115,14 +117,20 @@ export function ProjectModal({
               </div>
             )}
 
-            {(project.demo || project.repo || project.pdf || project.video) && (
+            {(project.demo ||
+              project.repo ||
+              project.pdf ||
+              project.report ||
+              project.paper ||
+              project.portfolioPdf ||
+              project.video) && (
               <div className="flex gap-4 overflow-x-auto border-t border-border/50 pt-4">
                 {project.demo && (
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-foreground px-6 text-background shadow-lg transition-all duration-500 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-background hover:text-foreground sm:px-8"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-foreground px-6 text-background shadow-lg transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-background hover:text-foreground sm:px-8"
                   >
                     <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
                       {projectText.live_demo ?? "Live Demo"}
@@ -136,25 +144,11 @@ export function ProjectModal({
                     href={project.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
                   >
                     <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
                       {projectText.source_code ?? "Source Code"}
                       <Github className="size-3.5 sm:size-4" />
-                    </span>
-                  </a>
-                )}
-
-                {project.pdf && (
-                  <a
-                    href={project.pdf}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
-                  >
-                    <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
-                      PDF
-                      <FileText className="size-3.5 sm:size-4" />
                     </span>
                   </a>
                 )}
@@ -164,7 +158,7 @@ export function ProjectModal({
                     href={project.video}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-500 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
                   >
                     <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
                       Video
@@ -172,6 +166,63 @@ export function ProjectModal({
                     </span>
                   </a>
                 )}
+
+                {project.pdf && (
+                  <a
+                    href={project.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
+                  >
+                    <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
+                      PDF
+                      <FileText className="size-3.5 sm:size-4" />
+                    </span>
+                  </a>
+                )}
+
+                {project.report && (
+                  <a
+                    href={project.report}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
+                  >
+                    <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
+                      {projectText.report ?? "Report"}
+                      <FileText className="size-3.5 sm:size-4" />
+                    </span>
+                  </a>
+                )}
+
+                {project.paper && (
+                  <a
+                    href={project.paper}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
+                  >
+                    <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
+                      {projectText.paper ?? "Paper"}
+                      <FileText className="size-3.5 sm:size-4" />
+                    </span>
+                  </a>
+                )}
+
+                {project.portfolioPdf && (
+                  <a
+                    href={project.portfolioPdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border/50 bg-secondary/10 px-6 text-foreground shadow-sm backdrop-blur-md transition-all duration-200 ease-out hover:-translate-y-1 hover:border-foreground/30 hover:bg-foreground hover:text-background sm:px-8"
+                  >
+                    <span className="relative z-10 flex items-center gap-2 text-xs font-medium uppercase tracking-widest sm:text-sm">
+                      {projectText.portfolio_pdf ?? "Portfolio"}
+                      <FileText className="size-3.5 sm:size-4" />
+                    </span>
+                  </a>
+                )}
+
               </div>
             )}
           </div>

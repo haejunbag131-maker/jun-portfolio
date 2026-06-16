@@ -42,6 +42,9 @@
     "technologies": "Technologies",
     "live_demo": "Live Demo",
     "source_code": "Source Code",
+    "report": "Report",
+    "paper": "Paper",
+    "portfolio_pdf": "Portfolio",
     "project_details": "Project Details"
   }
 }

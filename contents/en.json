@@ -108,12 +108,13 @@
         "title": "Scholar Mate",
         "category": "Capstone Design Project",
         "year": "2025",
-        "description": "A web application that helps users explore scholarship information and find opportunities that match their needs.",
-        "image": "/projects/scholarmate.png",
+        "description": "ScholarMate is a web service that brings scholarship information scattered across multiple organizations into one searchable place, recommends scholarships based on a user's academic status, region, income level, and grades, and helps users manage deadlines for scholarships they are interested in. \n\n I was responsible for frontend development on this project, implementing scholarship search, personalized recommendations, favorites, calendar, community, messaging, and authentication flows. \n Beyond building screens, I handled API integration, server-state management, optimistic updates, performance optimization, and accessibility checks, connecting the full flow from discovering scholarships to managing application schedules.",
+        "image": "/projects/scholarmate.webp",
         "demo": "https://배포주소.com",
         "repo": "https://github.com/haejunbag131-maker/scholarmate-frontend",
-        "pdf": "/projects/scholarmate.pdf",
-        "stack": ["React", "CSS3", "JavaScript", "Tailwind CSS", "Vite"]
+        "paper": "/projects/scholarmate_paper.pdf",
+        "portfolioPdf": "/projects/scholarmate_port.pdf",
+        "stack": ["React", "Tailwind CSS", "JavaScript", "CSS3", "Vite"]
       },
       {
         "id": "2",
@@ -122,9 +123,10 @@
         "year": "2026",
         "description": "A multilingual portfolio website built to introduce my projects, technical stack, and development journey.",
         "demo": "https://moodwave-fe.vercel.app/",
-        "image": "/projects/moodwave.png",
+        "image": "/projects/moodwave.webp",
         "repo": "https://github.com/ureca-void/moodwave-frontend",
-        "pdf": "/projects/moodwave.pdf",
+        "report": "/projects/moodwave.pdf",
+        "portfolioPdf": "/projects/moodwave.pdf",
         "video": "https://youtu.be/KzjJEWp_JRg?si=Cs7nsR7ZQjDaIr75",
         "stack": ["HTML5", "CSS3", "JavaScript", "Vite"]
       },

@@ -8,6 +8,9 @@ export type ProjectItem = {
   demo?: string;
   repo?: string;
   pdf?: string;
+  report?: string;
+  paper?: string;
+  portfolioPdf?: string;
   video?: string;
   stack?: string[];
 };
