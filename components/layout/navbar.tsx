@@ -282,7 +282,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen((current) => !current)}
-          className="relative z-110 inline-flex size-10 items-center justify-center text-foreground focus:outline-none xl:hidden"
+          className="relative z-110 inline-flex size-10 cursor-pointer items-center justify-center text-foreground focus:outline-none xl:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
         >

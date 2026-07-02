@@ -267,7 +267,7 @@ const ProjectCard = React.memo(function ProjectCard({
               </div>
             </div>
 
-            <h3 className="pointer-events-none absolute bottom-6 left-6 text-4xl font-black uppercase tracking-tighter text-foreground opacity-10 transition-opacity delay-100 duration-500 group-hover:opacity-100 sm:text-5xl md:text-6xl lg:text-7xl xl:bottom-12 xl:left-12 xl:text-8xl">
+            <h3 className="pointer-events-none absolute bottom-6 left-6 text-4xl font-black uppercase tracking-tighter text-foreground opacity-10 transition-opacity delay-100 duration-500 group-hover:opacity-100 sm:text-5xl md:text-6xl lg:text-7xl xl:bottom-12 xl:left-4 xl:text-8xl">
               {project.title}
             </h3>
           </div>

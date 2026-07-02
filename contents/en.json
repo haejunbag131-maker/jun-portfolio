@@ -114,31 +114,32 @@
         "repo": "https://github.com/haejunbag131-maker/scholarmate-frontend",
         "paper": "/projects/scholarmate_paper.pdf",
         "portfolioPdf": "/projects/scholarmate_port.pdf",
-        "stack": ["React", "Tailwind CSS", "JavaScript", "CSS3", "Vite"]
+        "stack": ["React", "Tailwind CSS", "JavaScript", "Vite"]
       },
       {
         "id": "2",
         "title": "MoodWave",
-        "category": "Bootcamp Mini Project",
+        "category": "Bootcamp Mini Project [1]",
         "year": "2026",
-        "description": "A multilingual portfolio website built to introduce my projects, technical stack, and development journey.",
+        "description": "MoodWave is a web service centered on Spotify music discovery and playback. It recommends songs based on the user's mood and current weather, analyzes their most-listened-to genres, and suggests popular tracks from those genres. \n\n I implemented the shared layout, hash-based routing, home, search, playlist, and mood recommendation interfaces, along with Spotify OAuth authentication and a Web Playback SDK-based player. After the project, I improved page lifecycle management, request cancellation, data caching, external SDK lazy loading, and image optimization.",
         "demo": "https://moodwave-fe.vercel.app/",
         "image": "/projects/moodwave.webp",
-        "repo": "https://github.com/ureca-void/moodwave-frontend",
+        "repo": "https://github.com/haejunbag131-maker/moodwave-frontend",
         "report": "/projects/moodwave.pdf",
-        "portfolioPdf": "/projects/moodwave.pdf",
+        "portfolioPdf": "/projects/moodwave_port.pdf",
         "video": "https://youtu.be/KzjJEWp_JRg?si=Cs7nsR7ZQjDaIr75",
         "stack": ["HTML5", "CSS3", "JavaScript", "Vite"]
       },
       {
         "id": "3",
-        "title": "Project Archive",
-        "category": "Experiment",
+        "title": "Feelog",
+        "category": "Personal Project",
         "year": "2025",
-        "description": "A collection of small features and UI experiments created during my learning process.",
-        "image": "/projects/20260305210513749.jpg",
-        "repo": "https://github.com/",
-        "stack": ["JavaScript", "CSS", "HTML"]
+        "description": "Feelog is an emotion journaling web service where users can record their daily feelings, revisit past entries through search and emotion filters, and add personal reflections.\n\nUsing Cursor AI, I broke requirements into functional tasks and designed prompts to implement diary CRUD, search, filtering, pagination, reflections, a photo archive, and authentication flows. \n I reviewed the generated code, reproduced and resolved issues, improved React Query state management, Next.js API Routes, Supabase integration, user authorization, and RLS security, and validated the results through production builds and E2E tests.",
+        "demo": "https://feelog-fe.vercel.app/diaries",
+        "image": "/projects/feelog.webp",
+        "repo": "https://github.com/haejunbag131-maker/feelog",
+        "stack": ["Cursor AI", "Next.js", "CSS Modules", "TypeScript"]
       }
     ]
   },

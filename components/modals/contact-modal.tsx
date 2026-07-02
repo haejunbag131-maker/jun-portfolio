@@ -47,7 +47,7 @@ export function ContactModal({ open, onOpenChange }: ContactModalProps) {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         showCloseButton={true}
-        className="gap-0 overflow-hidden border-border/50 bg-background/95 p-0 backdrop-blur-xl sm:max-w-140"
+        className="gap-0 overflow-hidden border-border/50 bg-background/95 p-0 backdrop-blur-xs sm:max-w-140"
       >
         <div className="relative px-8 pt-8 pb-6">
           <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
